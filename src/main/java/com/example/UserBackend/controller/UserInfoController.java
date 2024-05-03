@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/users")
 public class UserInfoController {
 
-private final UserInfoService userInfoService;
+    private final UserInfoService userInfoService;
 
     public UserInfoController(UserInfoService userInfoService) {
         this.userInfoService = userInfoService;
     }
 
     @PostMapping("/save")
-    public ResponseEntity createUser(@RequestBody UserInfo userInfo){
+    public ResponseEntity createUser(@RequestBody UserInfo userInfo) {
         userInfoService.saveUser(userInfo);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
