@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "USER_INFO")
-public class UserInfo {
+//@Table(name = "USER")
+public class User {
 
     @Id
     @GeneratedValue(
@@ -19,14 +19,14 @@ public class UserInfo {
     )
     private Long id;
 
-    @Column
-    private String user_name;
+    //@Column
+    private String Username;
 
-    @Column
-    private String user_email;
+   // @Column
+    private String Email;
 
-    public UserInfo(String user_name, String user_email) {
-        this.user_name = user_name;
-        this.user_email = user_email;
+    public User(String username, String email) {
+        Username = username;
+        Email = email;
     }
 }

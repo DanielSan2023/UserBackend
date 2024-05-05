@@ -1,7 +1,7 @@
 package com.example.UserBackend.controller;
 
 
-import com.example.UserBackend.entity.UserInfo;
+import com.example.UserBackend.entity.User;
 import com.example.UserBackend.service.UserInfoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +22,14 @@ public class UserInfoController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity createUser(@RequestBody UserInfo userInfo) {
-        userInfoService.saveUser(userInfo);
+    public ResponseEntity createUser(@RequestBody User user) {
+        userInfoService.saveUser(user);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/fetchAll")
-    public ResponseEntity<List<UserInfo>> fetchAllUsers(){
-        List<UserInfo> users = userInfoService.getAllUsers();
+    public ResponseEntity<List<User>> fetchAllUsers(){
+        List<User> users = userInfoService.getAllUsers();
         if (CollectionUtils.isEmpty(users)) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {

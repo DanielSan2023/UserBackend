@@ -1,6 +1,6 @@
 package com.example.UserBackend.service;
 
-import com.example.UserBackend.entity.UserInfo;
+import com.example.UserBackend.entity.User;
 import com.example.UserBackend.repository.UserInfoRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +14,12 @@ public class UserInfoService {
         this.userInfoRepository = userInfoRepository;
     }
 
-    public void saveUser(UserInfo userInfo) {
-        userInfoRepository.save(userInfo);
+    public void saveUser(User user) {
+        userInfoRepository.save(user);
     }
 
-    public List<UserInfo> getAllUsers() {
-        List<UserInfo> users = userInfoRepository.findAll();
+    public List<User> getAllUsers() {
+        List<User> users = userInfoRepository.findAll();
         return users;
     }
 }
